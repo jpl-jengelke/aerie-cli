@@ -83,12 +83,11 @@
     },
     {
         "request": {
-            "query": "mutation CreateSimulation($simulation: simulation_insert_input!) { createSimulation: insert_simulation_one(object: $simulation) { id } }",
+            "query": "mutation updateSimulationBounds($plan_id: Int!, $simulation_start_time: timestamptz!, $simulation_end_time: timestamptz!) { update_simulation( where: {plan_id: {_eq: $plan_id}}, _set: { simulation_start_time: $simulation_start_time, simulation_end_time: $simulation_end_time } ){ affected_rows } }",
             "variables": {
-                "simulation": {
-                    "arguments": {},
-                    "plan_id": 456
-                }
+                "plan_id": 456,
+                "simulation_start_time": "2030-01-01T00:00:00+00:00",
+                "simulation_end_time": "2030-01-01T12:00:00+00:00"
             }
         },
         "response": {
