@@ -3,16 +3,16 @@
 
 from pathlib import Path
 import arrow
+import json
 
 from aerie_cli.schemas.client import ActivityPlanRead
 import pytest
-
 INPUTS_DIRECTORY = Path(__file__).parent.joinpath("files", "inputs")
 
 
 def test_get_activity_start_time():
     with open(INPUTS_DIRECTORY.joinpath("get_activity_start_time.json"), "r") as fid:
-        plan: ActivityPlanRead = ActivityPlanRead.from_json(fid.read())
+        plan: ActivityPlanRead = ActivityPlanRead(**json.loads(fid.read()))
 
     # Activity anchored to plan start
     assert plan.get_activity_start_time(2) == arrow.get("2030-01-01T02:00:00+00:00")
