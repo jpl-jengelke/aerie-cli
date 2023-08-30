@@ -119,7 +119,6 @@ def test_create_activity():
             "aParameter": "2030-001T00:00:00Z"
         },
         "name": "My Activity",
-        "tags": [],
         "metadata": {}
     })
 
@@ -140,7 +139,6 @@ def test_update_activity():
             "aParameter": "2030-001T00:00:00Z"
         },
         "name": "My Activity",
-        "tags": [],
         "metadata": {}
     })
 

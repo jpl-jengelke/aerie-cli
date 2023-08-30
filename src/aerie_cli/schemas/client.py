@@ -31,7 +31,6 @@ class ActivityCreate:
     )
     parameters: dict[str, Any]
     name: str
-    tags: list[str]
     metadata: dict[str, str]
 
     def to_api_create(self, plan_id: int, plan_start_time: Arrow):
@@ -41,7 +40,6 @@ class ActivityCreate:
             start_offset=self.start_time - plan_start_time,
             arguments=self.parameters,
             name=self.name,
-            tags=self.to_api_array(self.tags),
             metadata=self.metadata
         )
 
@@ -68,7 +66,6 @@ class ActivityRead(ActivityCreate):
             type=api_activity_read.type,
             start_time=plan_start_time + api_activity_read.start_offset,
             parameters=api_activity_read.arguments,
-            tags=api_activity_read.tags,
             metadata=api_activity_read.metadata,
         )
 

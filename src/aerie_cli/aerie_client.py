@@ -68,7 +68,6 @@ class AerieClient:
                     start_offset
                     arguments
                     metadata
-                    tags
                 }
             }
         }
@@ -120,7 +119,6 @@ class AerieClient:
                     start_offset
                     arguments
                     metadata
-                    tags
                 }
             }
         }
